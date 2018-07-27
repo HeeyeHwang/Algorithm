@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+int Tree(int idx, int left[], int right[])
+{
+   int result = (left[idx] == 99 || right[idx] == 99);
+   if (result) return 1;
+   if (left[idx]> 0)
+      result = Tree(left[idx], left, right);
+   if (result == 1) return 1;
+   if(right[idx]> 0)
+      result = Tree(right[idx], left, right);
+   return result == 1 ? 1 : 0;
+}
+int main()
+{
+   int t = 0;
+   while (t++ < 10)
+   {
+      int size = 0;
+      int t_case = 0;
+      scanf("%d", &t_case);
+      scanf("%d", &size);
+      int arr[100] = { 0, };
+      int arr1[100] = { 0, };
+      for (int i = 0; i < size; i++)
+      {
+         int input = 0;
+         scanf("%d", &input);
+         int data = 0;
+         if (arr[input] == 0)
+         {
+            scanf("%d", &data);
+            arr[input] = data;
+         }
+         else
+         {
+            scanf("%d", &data);
+            arr1[input] = data;
+         }
+      }
+      int result = Tree(0, arr, arr1);
+      printf("#%d %d\n", t, result);
+   }
+    return 0;
+}
