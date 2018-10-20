@@ -1,141 +1,93 @@
 package hee.unclassified;
-
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
-
+ 
 class Pos {
-	int x;
-	int y;
-	Pos(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
+    int x;
+    int y;
+    public Pos(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    int getX() {
+        return x;
+    }
+    int getY() {
+        return y;
+    }
 }
-
+ 
 public class Solution_181017_queue {
-
-	/*
-	 * 우선순위 Queue
-	 * 
-	 * FIFO순서가 아니라 우선순위가 높은 순서대로 먼저 나가게 됨
-	 * 
-	 * 구현는 배열 또는 연결리스트!
-	 * 
-	 * 우선순위를 비교해서 삽입하고, 삭제는 앞에서부터 삭제!
-	 * 
-	 * Heap 자료 구조를 사용할 수도 있음.
-	 * 
-	 */
-	
-	//[S/W 문제해결 기본] 7일차 - 미로1
-	
-	
-	static char[][] maze;
-	static boolean[][] visited;
-	static LinkedList<Pos> queue;
-	
-	public static int maze() {
-		
-		// char 0 1 2 3 == int 48 49 50 51
-		int xIdx = 0;
-		int yIdx = 0;
-		
-		char curr;
-		
-		int[] xCal = new int[] {1, 0, -1, 0};
-		int[] yCal = new int[] {0, -1, 0, 1};
-		
-		while(!queue.isEmpty()) {
-
-			curr = maze[xIdx][yIdx];
-
-			
-			
-		}
-		
-		return 0;
-	}
-	
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		for(int i = 0 ; i < 10 ; i++) {
-			maze = new char[16][16];
-			visited = new boolean[16][16];
-			queue = new LinkedList<Pos>();
-			int test = sc.nextInt();
-			sc.nextLine();
-			
-			String line;
-			char[] arr;
-			for(int j = 0 ; j < 16 ; j++) {
-				line = sc.nextLine();
-				arr = line.toCharArray();
-				maze[j] = arr;
-			}
-			
-			System.out.printf("#%d %d\n", test, maze());
-		}
-		
-		sc.close();
-	}
-	
-	
-	
-	//[S/W 문제해결 기본] 7일차 - 암호생성기
-	
-	static LinkedList<Integer> _queue;
-	
-	public static void main_passwordGenerator (String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		int testcase = 0;
-		for(int i = 0 ; i < 10 ; i++) {
-			
-			_queue = new LinkedList<Integer>();
-			testcase = sc.nextInt();
-			
-			for(int j = 0 ; j < 8 ; j++) {
-				_queue.add(sc.nextInt());
-			}
-		
-			passwordGenerator();
-
-			System.out.printf("#%d ", i+1);
-			for(int j = 0; j < 8 ; j++) {
-				if(j == 7) {
-					System.out.println(_queue.pop());
-				} else {
-					System.out.printf("%d ", _queue.pop());
-				}
-			}
-		}
-		
-		sc.close();
-	}
-	
-	public static void passwordGenerator() {
-		
-		int cycle = 1;
-		while(true) {
-
-			if(cycle > 5) {
-				cycle = 1;
-			}
-			
-			int first = _queue.pop();
-			int willLast = first - cycle++;
-			
-			if(willLast <= 0) {
-				_queue.addLast(0);
-				break;
-			} else {
-				_queue.addLast(willLast);
-			}
-
-		}
-	}
-	
+ 
+    static int[][] map;
+    static boolean[][] visited;
+    static LinkedList<Pos> queue;
+     
+    //[S/W 문제해결 기본] 7일차 - 미로1
+    public static int maze1() {
+         
+        int x;
+        int y;
+        int[] xCal = new int[] {0, -1, 0, 1};
+        int[] yCal = new int[] {1, 0, -1, 0};
+         
+        Pos curr;
+        while(!queue.isEmpty()) {
+             
+            curr = queue.poll();
+            x = curr.getX();
+            y = curr.getY();
+            for(int i = 0 ; i < 4 ; i++) {
+                int stx = x + xCal[i];
+                int sty = y + yCal[i];
+                if(stx >= 0 && stx < 16 && sty >= 0 && sty < 16) {
+ 
+                    if(!visited[stx][sty]) {
+                        if(map[stx][sty] == 0) {
+                            visited[stx][sty] = true;
+                            queue.add(new Pos(stx, sty));
+                        } else if (map[stx][sty] == 3) {
+                            return 1;
+                        }
+                    }
+                }
+            }
+        }
+         
+         
+        return 0;
+    }
+     
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+         
+        for(int i = 0 ; i < 10 ; i++) {
+            map = new int[16][16];
+            visited = new boolean[16][16];
+            queue = new LinkedList<Pos>();
+            int test = sc.nextInt();
+            sc.nextLine();
+             
+            String line;
+             
+            for(int j = 0 ; j < 16 ; j++) {
+                line= sc.nextLine();
+                for(int k = 0 ; k < 16 ; k++) {
+                    map[j][k] = line.charAt(k) - 48;
+                     
+                    if(map[j][k] == 2) {
+                        visited[j][k] = true;
+                        queue.add(new Pos(j, k));
+                    } else if (map[j][k] == 1) {
+                        visited[j][k] = true;
+                    }
+                }
+                 
+            }
+             
+            System.out.printf("#%d %d\n", i+1, maze1());
+        }
+         
+        sc.close();
+    }
 }
