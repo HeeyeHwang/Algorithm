@@ -115,7 +115,7 @@ SW Expert Academy에 있는 프로그래밍 강의 공부 내용
 * Baby-gin에 대해 Greedy Algorithm 적용하기
   1. 6개의 숫자는 6자리의 정수 값으로 입력됨
   2. COUNTS Array의 각 원소를 체크해 run과 triplete 및 Baby-gin 여부를 판단
-  ![Baby-gin-Greedy](https://github.com/HeeyeHwang/SWExpertAlgorithm/blob/master/img/Greedy-baby-gin.PNG)
+  ![Baby-gin-Greedy](https://github.com/heeyeah/AlgorithmPractice/blob/master/SWExpertAlgorithm/img/Greedy-baby-gin.PNG)
   
 * Greedy Algorithm은 해답을 찾아내지 못하는 경우가 존재할 수도 있음
 
@@ -203,7 +203,7 @@ SW Expert Academy에 있는 프로그래밍 강의 공부 내용
 
 * Sort 비교
 
-  ![SORT 비교](https://github.com/HeeyeHwang/SWExpertAlgorithm/blob/master/img/Sort-Chart.PNG "출처 : SW Expert Academy")
+  ![SORT 비교](https://github.com/heeyeah/AlgorithmPractice/blob/master/SWExpertAlgorithm/img/Sort-Chart.PNG "출처 : SW Expert Academy")
 
 
 <br/>
