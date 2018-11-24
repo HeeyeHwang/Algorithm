@@ -29,14 +29,42 @@
 - https://www.zerocho.com/category/Algorithm/post/584b979a580277001862f182
 
 
+
+
+
 #### [ABCDE](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P13023_ABCDE.java) - Graph, DFS
 
 ##### 풀이법
+* 시작점
 
+  Graph 문제에 ABCDE 로 이어진 length를 찾는 문제니까 DFS로 풀어야겠다고 생각했다.
+  
+* 1차시도
 
+  1. 시작점(root)을 모든 노드에 대해 생각해야 한다. 1에서 시작하는 경우와 6에서 시작하는 깊이가 다르게 나올 수 있음.
+  2. stack을 하나 두고, 시작점부터 push. 연결된 노드 값을 visit하지 않았을 때 visit체크 후 stack에 push하고 그 값을 기준으로 반복.
+  3. stack is empty 할 때까지 못찾으면 return 0. 그 전에 stack의 길이가 5가 되면 return 1.
+  
+  이렇게 했더니 시간 초과가 난다..😭
+  stack을 돌면 어떤 element들이 length가 5인지까지 알 수 있지만 이 문제는 그냥 return 1 아니면 0이니까 사실 좀 불필요한 것 같기도하고
+  게다가 stack으로 돌았을 때 더이상 visit 할 곳이 없으면 pop해줘야 하는 타이밍도 flag로 체크해줘야 하고.... 하여튼 복잡시럽다 (해당 소스의 printABCDERel 메소드)
 
+* 2차시도
+
+  검색해봄. 시간초과 어떻게 안나는지. DFS는 스택과 재귀로 사용할 수 있는데, 재귀를 사용하면 깔끔하게 풀 수 있는 것 같다.
+  
+  1. 재귀는 들어갈 곳이 없으면 그냥 알아서 위로 나오니까 end flag같은게 필요 없어서 좋은 듯.
+  2. curr 노드를 받고, curr는 바로 visit 체크.
+  3. rel이 있는 노드 중 visit 되지 않은 노드로 재귀, curr을 next노드로 지정.
+  4. length가 5면 return 1. dfs 탐색 해도 답이 안나오면 return 0.
+
+  dfs 방법은 아래 블로그를 참고했다😄 다음엔 혼자 힘으로도 시간초과 안나게 풀 수 있기를.
+  
 ##### 참고
 - http://wookje.dance/2017/04/18/boj-13023-ABCDE/
+
+
+
 
 
 #### [가장 긴 증가하는 부분 수열](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P11053_LongSequence.java) - Dynamic Programming
