@@ -27,3 +27,18 @@
 ##### 참고
 - http://new93helloworld.tistory.com/220
 - https://www.zerocho.com/category/Algorithm/post/584b979a580277001862f182
+
+
+#### [ABCDE](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P13023_ABCDE.java) - Graph, DFS
+
+##### 풀이법
+
+
+
+##### 참고
+- http://wookje.dance/2017/04/18/boj-13023-ABCDE/
+
+
+#### [가장 긴 증가하는 부분 수열](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P11053_LongSequence.java) - Dynamic Programming
+
+##### 풀이법
