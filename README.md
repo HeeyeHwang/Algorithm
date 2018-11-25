@@ -1,9 +1,8 @@
-### HeeyeahNote
+### [HeeyeahNote](https://github.com/heeyeah/AlgorithmPractice/tree/master/HeeyeahNote/src/baekjoon)
 
 Programmers, Baekjoon Algorithm note (for recording)
 
-[Baekjoon : 푼 문제 소스 & 생각정리 및 풀이법](https://github.com/heeyeah/AlgorithmPractice/tree/master/HeeyeahNote/src/baekjoon)
-
+푼 문제 소스 & 생각정리 및 풀이법
 
 
 ### [HackerRankSolution](https://github.com/heeyeah/AlgorithmPractice/tree/master/HackerRankSolution)
