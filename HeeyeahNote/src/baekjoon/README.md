@@ -6,7 +6,7 @@
 * [2156. 포도주 시식](#포도주-시식)
 * [13023. ABCDE](#ABCDE)
 * [11053. 가장 긴 증가하는 부분 수열](#가장-긴-증가하는-부분-수열)
-  
+* [9461. 파도반 수열](#파도반-수열)
   
 <br/>
 <br/>
@@ -117,3 +117,28 @@
 - http://suriisurii.tistory.com/39
 
 <br/><br/>
+
+### 파도반 수열
+
+##### 소스
+[파도반 수열](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P9461_WaveSequence.java) - Dynamic Programming
+
+
+##### 풀이법
+
+* 시작점
+
+  수열의 규칙을 보니
+  
+	P[i] = P[i-2] + P[i-3] ( i >= 3)
+	P[i] = 1 					 ( i < 3)
+	
+  이어서 점화식을 사용해 풀었다.
+  
+* 시도
+  
+  점화식이 분명 맞는데 틀렸다고 나와서 보니, 1 <= N <= 100인 범위에서, 100을 넣으면 int 범위를 넘어서 답이 제대로 출력되지 않는다. DP 배열을 long으로 두고 해야 함!
+  
+ <br/><br/>
+ 
+ 
