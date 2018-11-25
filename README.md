@@ -1,4 +1,4 @@
-### [HeeyeahNote](https://github.com/heeyeah/AlgorithmPractice/tree/master/HeeyeahNote/src/baekjoon)
+### [HeeyeahNote](https://github.com/heeyeah/AlgorithmPractice/tree/master/HeeyeahNote)
 
 Programmers, Baekjoon Algorithm note (for recording)
 
