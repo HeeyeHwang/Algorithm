@@ -8,6 +8,7 @@
   * [13023. ABCDE](#ABCDE)
   * [11053. 가장 긴 증가하는 부분 수열](#가장-긴-증가하는-부분-수열)
   * [9461. 파도반 수열](#파도반-수열)
+  * [11726. ](#2xn-타일링)
   
 <br/>
 <br/>
@@ -143,3 +144,13 @@
  <br/><br/>
  
  
+### 2xn 타일링
+
+##### 소스
+[2xn 타일링](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P11726_2xnTiling.java) - Dynamic Programming
+
+##### 풀이법
+
+공책에 그리면서 n=5 까지 패턴을 보니, 1 2 3 5 8 ... 수열이 나왔는데 피보나치 수열이라서 피보나치 점화식대로 풀었다.
+
+다만, 1000까지의 돌렸을 때 long 값도 거뜬히 넘기 때문에, 점화식으로 더해나갈 때 10007로 나누면서 더해가야 한다.
