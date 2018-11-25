@@ -1,4 +1,16 @@
-### 알고리즘 문제 목록
+## Summary
+알고리즘 푼 문제 소스 및 생각정리 & 풀이법
+<br/>
+<br/>
+
+- list
+  * [2156. 포도주 시식](#포도주-시식)
+  * [13023. ABCDE](#ABCDE)
+  * [11053. 가장 긴 증가하는 부분 수열](#가장-긴-증가하는-부분-수열)
+  
+  
+<br/>
+
 #### [포도주 시식](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P2156_drinkWine.java) - Dynamic Programming
 
 ##### 풀이법
@@ -29,7 +41,7 @@
 - https://www.zerocho.com/category/Algorithm/post/584b979a580277001862f182
 
 
-
+<br/>
 
 
 #### [ABCDE](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P13023_ABCDE.java) - Graph, DFS
@@ -63,7 +75,7 @@
 ##### 참고
 - http://wookje.dance/2017/04/18/boj-13023-ABCDE/
 
-
+<br/>
 
 
 
@@ -93,3 +105,5 @@
  
 ##### 참고
 - http://suriisurii.tistory.com/39
+
+<br/>
