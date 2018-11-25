@@ -11,6 +11,11 @@
   * [11726.2xn 타일링](#2xn-타일링)
   
 <br/>
+
+- Programmers
+  * [타일 장식물](#타일-장식물)
+
+<br/>
 <br/>
 <br/>
 
@@ -154,3 +159,17 @@
 공책에 그리면서 n=5 까지 패턴을 보니, 1 2 3 5 8 ... 수열이 나왔는데 피보나치 수열이라서 피보나치 점화식대로 풀었다.
 
 다만, 1000까지의 돌렸을 때 long 값도 거뜬히 넘기 때문에, 점화식으로 더해나갈 때 10007로 나누면서 더해가야 한다.
+
+
+<br/>
+<br/>
+<br/>
+
+### 타일 장식물
+##### 소스
+[타일 장식물](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/TileOrnaments.java) - DP
+
+##### 풀이법
+
+2xn 타일링과 유사한데, 직사각형의 둘레를 구해야 한다는 차이점.
+
