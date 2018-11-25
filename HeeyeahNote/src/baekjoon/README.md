@@ -12,7 +12,7 @@
 <br/>
 <br/>
 
-#### 포도주 시식
+### 포도주 시식
 
 ##### 소스
 [포도주 시식](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P2156_drinkWine.java) - Dynamic Programming
@@ -48,7 +48,7 @@
 <br/>
 
 
-#### ABCDE
+### ABCDE
 
 ##### 소스
 [ABCDE](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P13023_ABCDE.java) - Graph, DFS
@@ -86,7 +86,7 @@
 
 
 
-#### 가장 긴 증가하는 부분 수열
+### 가장 긴 증가하는 부분 수열
 
 ##### 소스
 [가장 긴 증가하는 부분 수열](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P11053_LongSequence.java) - Dynamic Programming
