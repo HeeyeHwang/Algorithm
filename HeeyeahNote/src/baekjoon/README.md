@@ -3,15 +3,19 @@
 <br/>
 <br/>
 
-- list
-  * [2156. 포도주 시식](#포도주-시식)
-  * [13023. ABCDE](#ABCDE)
-  * [11053. 가장 긴 증가하는 부분 수열](#가장-긴-증가하는-부분-수열)
+* [2156. 포도주 시식](#포도주-시식)
+* [13023. ABCDE](#ABCDE)
+* [11053. 가장 긴 증가하는 부분 수열](#가장-긴-증가하는-부분-수열)
   
   
 <br/>
+<br/>
+<br/>
 
-#### [포도주 시식](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P2156_drinkWine.java) - Dynamic Programming
+#### 포도주 시식
+
+##### 소스
+[포도주 시식](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P2156_drinkWine.java) - Dynamic Programming
 
 ##### 풀이법
 * 시작점
@@ -44,7 +48,10 @@
 <br/>
 
 
-#### [ABCDE](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P13023_ABCDE.java) - Graph, DFS
+#### ABCDE
+
+##### 소스
+[ABCDE](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P13023_ABCDE.java) - Graph, DFS
 
 ##### 풀이법
 * 시작점
@@ -79,7 +86,10 @@
 
 
 
-#### [가장 긴 증가하는 부분 수열](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P11053_LongSequence.java) - Dynamic Programming
+#### 가장 긴 증가하는 부분 수열
+
+##### 소스
+[가장 긴 증가하는 부분 수열](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P11053_LongSequence.java) - Dynamic Programming
 
 ##### 풀이법
 * 시작점
