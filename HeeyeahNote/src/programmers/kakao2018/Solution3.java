@@ -1,9 +1,6 @@
 package programmers.kakao2018;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Solution3 {
 
@@ -47,39 +44,34 @@ public class Solution3 {
 	 * 
 	 */
 	public int solution(String[][] relation) {
+		
 		int answer = 0;
 		
 		int colCnt = relation[0].length;
 		int rowCnt = relation.length;
 		
-		Set<String> set;
-		
-		// 1
-		for(int i = 0 ; i < colCnt ; i++) {
-			
-			set = new HashSet<String>();
-			
-			for(int j = 0 ; j < rowCnt ; j++) {
-				set.add(relation[j][i]);
-			}
-			
-			System.out.println(set);
-			
-			if(set.size() == rowCnt) {
-				answer++;
-			}
-		}
 		
 		
 		return answer;
 	}
 	
-	private boolean checkUniqueness() {
-		return false;
+	private String[] getTarget(String[][] relation, List<Integer> indexs) {
+		return null;
 	}
 	
-	private boolean checkMinimality() {
-		return false;
+	private boolean isCandidate(String[] target) {
+		
+		Set<String> set = new HashSet<String>();
+		
+		for(String el : target) {
+			set.add(el);
+		}
+		
+		if(target.length == set.size()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public static void main(String[] args) {
