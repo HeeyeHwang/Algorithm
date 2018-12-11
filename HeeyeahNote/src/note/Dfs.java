@@ -1,4 +1,4 @@
-package bcc.impact;
+package note;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ public class Dfs {
 		Node nodeF = new Node("F");
 		Node nodeG = new Node("G");
 		Node nodeH = new Node("H");
-		
+
 		service.getChildren().add(nodeA);
 		service.getChildren().add(nodeB);
 		nodeB.getChildren().add(nodeC);
@@ -28,22 +28,21 @@ public class Dfs {
 		nodeD.getChildren().add(nodeF);
 		nodeC.getChildren().add(nodeG);
 		nodeC.getChildren().add(nodeH);
-		
-		writeServiceCallData(service, 0);
-//		System.out.println("rslt : " + rslt);
-		
+
+		// System.out.println("rslt : " + rslt);
+
 	}
-	
+
 	public static void writeServiceCallData(Node node, int depth) {
 
 		int cnt = 0;
 		System.out.println("node : " + node.getValue());
 		stack.push(node);
-		
-		if(node.getChildren().size() == 0) {
-			
+
+		if (node.getChildren().size() == 0) {
+
 			StringBuilder sb = new StringBuilder();
-			for(int i = stack.size() - 1 ; i >= 0 ; i--) {
+			for (int i = stack.size() - 1; i >= 0; i--) {
 				sb.append(" - ").append(stack.get(i).getValue());
 			}
 			sb.append("\n");
@@ -51,15 +50,15 @@ public class Dfs {
 			stack.pop();
 			return;
 		} else {
-			
-			for(Node child : node.getChildren()) {
+
+			for (Node child : node.getChildren()) {
 				writeServiceCallData(child, depth + 1);
 				cnt++;
 			}
 		}
 
 		System.out.println(" el :" + stack.peek().getValue());
-		if(node.getChildren().size() == cnt) {
+		if (node.getChildren().size() == cnt) {
 			stack.pop();
 		}
 	}
@@ -69,23 +68,28 @@ class Node {
 	private String value;
 	private List<Node> children;
 	private boolean visited;
-	
+
 	public Node(String value) {
 		this.value = value;
 		this.children = new ArrayList<Node>();
 	}
+
 	public String getValue() {
 		return value;
 	}
+
 	public List<Node> getChildren() {
 		return children;
 	}
+
 	public boolean isVisited() {
 		return visited;
 	}
+
 	public void setVisited(boolean visited) {
 		this.visited = visited;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
