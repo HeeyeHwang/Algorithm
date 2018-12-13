@@ -168,7 +168,7 @@
 
 ### 타일 장식물
 ##### 소스
-[타일 장식물](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/TileOrnaments.java) - DP
+[타일 장식물](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/dp/TileOrnaments.java) - DP
 
 ##### 풀이법
 
@@ -180,7 +180,7 @@
 
 ### 프린터
 ##### 소스
-[프린터](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/TileOrnaments.java) - stack/queue
+[프린터](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/stackqueue/Printer.java) - stack/queue
 
 ##### 풀이법
 
