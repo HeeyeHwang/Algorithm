@@ -1,113 +1,110 @@
 package baekjoon;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class P2011_CryptographCode {
 
 
-	static int[] dp;
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		
 		String n = sc.nextLine();
-		
 		if(n == null || n.isEmpty()) {
 			System.out.println(0);
 		} else {
-			solveThis(n);
-			System.out.println(dp[n.length() -1]);
+			int rslt = solveThis(n);
+			System.out.println(rslt);
 		}
+		
 		sc.close();
 	}
 
-	static int lastDigit1;
-	static int lastDigit2;
-	public static void solveThis(String n) {
+	public static int solveThis(String n) {
 
-		dp = new int[n.length()];
+		int[] dp = new int[n.length()];
 
 		char first = n.charAt(0);
-		char last = n.charAt(n.length() -1);
-		
 		if(first == '0') {
-			return;
+			return 0;
 		}
 		
-		if(last == '0') {
-			int verify = Integer.parseInt(n.substring(n.length()-2, n.length()));
-			if(verify != 10 && verify != 20) {
-				System.out.println(verify);
-				return;
+		if(n.length() == 2 && n.charAt(1) == '0') {
+			if(n.equals("10") || n.equals("20")) {
+				return 1;
+			} else {
+				return 0;
 			}
 		}
 		
-		
-		int lastDigit1 = 0;
-		int lastDigit2 = 0;
-
+		int standard;
+		int lastNum;
 		for (int i = 0; i < n.length(); i++) {
 
-			int standard = n.charAt(i) - '0'; // or Character.getNumericValue
+			if(n.charAt(i) < 48 || n.charAt(i) > 57	) { // 0~9 ascii
+				return 0;
+			}
+			
+			standard = n.charAt(i) - '0'; // or Character.getNumericValue
 //			System.out.println("standard : " + standard);
+
 			if (i == 0) {
-				lastDigit1 = lastDigit2= standard;
 				dp[i] = 1;
 				continue;
+			} else {
+				lastNum = n.charAt(i-1) - '0';
 			}
-
-
-			if(lastDigit1 == lastDigit2) {
-				int next =isProperAlphabet(lastDigit1, standard);
-				if(next != -1) {
-					lastDigit1 = next;
-					lastDigit2 = standard;
-					dp[i] = dp[i-1] * 2;
+			
+			
+			if(standard == 0) {
+				if(isProperAlphabet(lastNum, standard)) {
+					
+					if( i > 2) {
+						if(n.charAt(i-2)-'0' >= 3) {
+							dp[i] = dp[i-1];
+						} else {
+							dp[i] = dp[i-2];
+						}
+					} else {
+						dp[i] = dp[i-1];
+					}
+//					System.out.println(Arrays.toString(dp));
+					continue;
 				} else {
-					lastDigit1 = lastDigit2 = standard;
-					dp[i] = dp[i-1];
+					return 0;
+				}
+			} 
+
+			if(isProperAlphabet(lastNum, standard)) {
+				if( i == 1) {
+					dp[i] = dp[i-1] + 1;
+				} else {
+					dp[i] = dp[i-1] + dp[i-2];
 				}
 			} else {
-				
-				int proper = isProperAlphabet(lastDigit1, standard);
-				int proper2 = isProperAlphabet(lastDigit2, standard);
-				
-//				System.out.println("proper : " + proper + " proper2 :" +proper2);
-//				if (proper == -1 && proper2 == -1) {
-//					dp[i] = dp[i - 1];
-//					lastDigit1 = proper;
-//					lastDigit2 = proper2;
-//				} else 
-					if (proper != -1) {
-					dp[i] = dp[i - 1] + 2;
-					lastDigit1 = proper;
-					lastDigit2 = standard;
-					
-				} else if (proper2 != -1) {
-					dp[i] = dp[i - 1] + 2;
-					lastDigit1 = standard;
-					lastDigit2 = proper2;
-					
-				} else {
-					dp[i] = dp[i - 1];
-					lastDigit1 = lastDigit2 = standard;
-				}
-				
+				dp[i] = dp[i-1];
 			}
-
+//			lastNum = standard;
+		
+//			System.out.println(Arrays.toString(dp));
+			
 			dp[i] = dp[i] % 1000000;
-//			System.out.printf("lastDigit1 : %d, lastDigit2 : %d, rslt : %s\n", lastDigit1, lastDigit2, Arrays.toString(dp));
 		}
 
+		return dp[n.length() -1];
 	}
 
-	private static int isProperAlphabet(int pre, int post) {
+	private static boolean isProperAlphabet(int pre, int post) {
 
-		int alphabet = Integer.parseInt(String.format("%d%d", pre, post));
+		if(pre == 0) {
+			return false;
+		}
+		int alphabet = pre*10 + post;//= Integer.parseInt(String.format("%d%d", pre, post));
 		if (1 <= alphabet && alphabet <= 26) {
-			return alphabet;
+			return true;
 		} else {
-			return -1;
+			return false;
 		}
 	}
 }
