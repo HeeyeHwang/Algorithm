@@ -14,6 +14,7 @@
 
 - Programmers
   * [타일 장식물](#타일-장식물)
+  * [프린터](#프린터)
 
 <br/>
 <br/>
@@ -163,7 +164,7 @@
 
 <br/>
 <br/>
-<br/>
+
 
 ### 타일 장식물
 ##### 소스
@@ -173,3 +174,18 @@
 
 2xn 타일링과 유사한데, 직사각형의 둘레를 구해야 한다는 차이점.
 
+<br/>
+<br/>
+
+
+### 프린터
+##### 소스
+[프린터](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/TileOrnaments.java) - stack/queue
+
+##### 풀이법
+
+Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 index를 key로 사용. ( 주어진 location으로 get value 해서 답 도출해야 하므로 )
+
+
+<br/>
+<br/>
