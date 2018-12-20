@@ -56,30 +56,26 @@ public class P3190_Snake {
 			directMap.put(Integer.parseInt(arr[0]), arr[1]);
 		}
 		
-		System.out.println(appleMap);
-		System.out.println(directMap);
+//		System.out.println(appleMap);
+//		System.out.println(directMap);
 		
 		LinkedList<Loc> snake = new LinkedList<Loc>();
-		snake.push(new Loc(1, 1));
 		int x = 1;
-		int y = 2;
+		int y = 1;
+		snake.push(new Loc(x, y));
 		int seconds = 0;
 		int turn = 0;
+		
 		while(true) {
 			seconds++;
-			snake.push(new Loc(x, y));
 			
-			
-			System.out.println(x+""+y);
-			for(int i = 0 ; i < snake.size() ; i++) {
-				System.out.printf("%s",snake.get(i).toString());
-			}
-			System.out.println("");
-			
-			if(directMap.containsKey(seconds)) {
-				String flag = directMap.get(seconds);
+//			System.out.println("seconds : " +seconds);
+			// next seconds, define x & y
+			if(directMap.containsKey(seconds-1)) {
+				String flag2 = directMap.get(seconds-1);
 				
-				if(flag.equals("D")) {
+//				System.out.println(" turn ~ " + flag2);
+				if(flag2.equals("D")) {
 					turn++;
 				} else {
 					turn--;
@@ -96,14 +92,12 @@ public class P3190_Snake {
 				x--; // up
 			}
 			
-			Loc head = snake.peek();	
-			
-			if(head.getX() > n || head.getY() > n) {
-				System.out.println(" break ! : " +seconds);
+			if(x > n || x < 1 || y > n || y < 1) {
+//				System.out.println(" break ! : " +seconds);
 				break;
 			}
 			
-			boolean flag;
+			boolean flag = false;
 			for(int i = 0 ; i < snake.size() ; i++) {
 				if(x == snake.get(i).getX() && y == snake.get(i).getY()) {
 					flag = true;
@@ -111,23 +105,29 @@ public class P3190_Snake {
 				}
 			}
 			
-			if(true) {
-				seconds++;
+			if(flag) {
+//				System.out.println("break!!!!");
 				break;
 			}
 			
-			System.out.printf("seconds %d | turn %d | x %d | y %d\n", seconds, turn, x, y);
+			
+			snake.push(new Loc(x, y));
+			
+			
 			if(appleMap.containsKey(x+""+y)) {
 				appleMap.remove(x+""+y);
 			} else {
 				snake.removeLast();
 			}
-			if(seconds > 30) {
-				break;
-			}
+			
+//			System.out.printf("seconds %d | turn %d | x %d | y %d\n", seconds, turn, x, y);
+//			for(int i = 0 ; i < snake.size() ; i++) {
+//				System.out.printf("%s",snake.get(i).toString());
+//			}
+//			System.out.println("");
 		}
 		
-		
+		System.out.println(seconds);
 	}
 }
 
