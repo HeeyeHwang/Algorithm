@@ -1,55 +1,61 @@
 package programmers.stackqueue;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Stack;
 
 public class IronBar {
 
 	public static void main(String[] args) {
-		
+
 		String arrangement = "()(((()())(())()))(())";
-		solution(arrangement);
+		int rslt = solution(arrangement);
+		System.out.printf("answer : %d", rslt);
 	}
-	
+
 	public static int solution(String arrangement) {
-        int answer = 0;
-        
-        char[] laser = arrangement.toCharArray();
-        LinkedList<Character> queue = new LinkedList<Character>();
-        Stack<Character> ss = new Stack<Character>();
 
-        int laserCnt = 0;
-        queue.push(laser[0]);
-        for(int i = 1 ; i < laser.length ; i++) {
-        	char curr = laser[i];
-        	char bef = laser[i-1];
-        	if(bef == '(' && curr == ')') {
-        		System.out.println("this");
-        		queue.removeLast();
-        		queue.add('*');
-        		laserCnt++;
-        	} else {
-        		queue.add(curr);
-        	}
-        }
-        System.out.println(queue);
+		int answer = 0;
+		char[] laser = arrangement.toCharArray();
+		LinkedList<Character> list = new LinkedList<Character>();
 
-        Stack<Character> stack = new Stack<Character>();
-        for(int i = 0 ; i < queue.size() ; i++) {
-        	
-        	char curr = queue.get(i);
-        	
-        	if(curr == '(') {
-        		stack.push(curr);
-        	} else if (curr == '*'){
-        		
-        	} else {
-        		stack.pop();
-        	}
-        }
+		list.add(laser[0]);
+		for (int i = 1; i < laser.length; i++) {
+			char curr = laser[i];
+			char bef = laser[i - 1];
+			if (bef == '(' && curr == ')') {
+				list.removeLast();
+				list.add('*');
+			} else {
+				list.add(curr);
+			}
+		}
 
-        
-        return answer;
-    }
+		Stack<Character> stack = new Stack<Character>();
+		int idx = 0;
+		while (idx < list.size()) {
+
+			int laserCnt = 0;
+			char c = list.get(idx);
+			if (c == '(' || c == '*') {
+				stack.push(c);
+			} else {
+
+				while (true) {
+					char el = stack.pop();
+					if (el == '*') {
+						laserCnt++;
+					} else if (el == '(') {
+						break;
+					}
+				}
+				for (int i = 0; i < laserCnt; i++) {
+					stack.push('*');
+				}
+				answer = answer + laserCnt + 1;
+			}
+			idx++;
+		}
+
+		return answer;
+	}
 }
