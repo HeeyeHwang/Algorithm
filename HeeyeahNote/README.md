@@ -12,6 +12,7 @@
   * [2011. 암호코드](#암호코드)
   * [2294. 코인2](#코인2)
   * [9996. 한국이 그리울 땐 서버에 접속하지](#한국이-그리울-땐-서버에-접속하지)
+  * [1927. 최소힙](#최소힙)
 <br/>
 
 - Programmers
@@ -228,6 +229,13 @@ abcdefl
 ##### 풀이법
 
 문자열 문제. 반례는 시작이 abcd 이고 끝이 cdef 인데 abcdef 일 때의 결과.
+
+<br/>
+<br/>
+
+### 최소힙
+##### 소스
+[최소힙](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P1927_MinHeap.java) - heap
 
 <br/>
 <br/>
