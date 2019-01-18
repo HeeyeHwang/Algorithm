@@ -18,6 +18,7 @@ public class IronBar {
 		char[] laser = arrangement.toCharArray();
 		LinkedList<Character> list = new LinkedList<Character>();
 
+		// 닫힌 괄호 () 를 레이저 포인트 *로 치환해준다.
 		list.add(laser[0]);
 		for (int i = 1; i < laser.length; i++) {
 			char curr = laser[i];
