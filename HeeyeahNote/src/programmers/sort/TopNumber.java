@@ -2,80 +2,74 @@ package programmers.sort;
 
 public class TopNumber {
 
-	public void heapify(int[] arr, int index) {
+	private int[] arr;
+	
+	public void sort() {
 		
-		for(int i = 1 ; i < index ; i++) {
-			
-			int child = i;
-			int parent;
-			
-			while(child > 0) {
-				parent = ( child - 1 ) / 2;
-				
-				if(switchValue(arr[child], arr[parent])) {
-					System.out.println("switch");
-					int temp = arr[child];
-					arr[child] = arr[parent];
-					arr[parent] = temp;
-				}
-				
-				child = parent;
-			}
+		buildHeap();
+		
+		for (int i = arr.length-1; i > 0; i--) {
+			swap(0, i); // root인 max heap switch
+			heapify(0, i-1);
+		}
+
+	}
+	
+	public void buildHeap() {
+		for(int i = (arr.length -1) / 2 ; i>= 0 ; i--) {
+			heapify(i, arr.length-1);
 		}
 	}
 
+	private void swap(int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+
+	void heapify(int index, int size) {
+
+		int left = 2*index + 1;
+		int right = 2*index + 2;
+		int max;
+		
+		if(left <= size && switchValue(arr[left], arr[index])) {
+			max = left;
+		} else {
+			max = index;
+		}
+		
+		if(right <= size && switchValue(arr[right], arr[max])) {
+			max = right;
+		}
+		
+		
+		if(max != index) {
+			swap(index, max);
+			heapify(max, size);
+		}
+	}
+
+	
+
 	public String solution(int[] numbers) {
 		
-		//heap
-		heapify(numbers, numbers.length);
-
-		for(int i = numbers.length - 1 ; i > 0 ; i--) {
-			
-			int temp = numbers[0];
-			numbers[0] = numbers[i];
-			numbers[i] = temp;
-			
-			heapify(numbers, i);
-		}
+		arr = numbers;
+		
+		sort();
+		
 		
 		StringBuilder sb = new StringBuilder();
 		if(numbers[0] == 0) {
 			return "0";
 		} else {
-			for(int number :numbers) {
+			for(int number : arr) {
 				sb.append(number);
 			}
 		}
 		return sb.toString();
 	}
 	
-	public String selectionSort(int[] numbers) {
-
-		StringBuilder sb = new StringBuilder();
-		
-		int n = numbers.length;
-		for(int i = n-1 ; i > 0 ; i--) {
-			
-			for(int j = 0 ; j < i ; j++) {
-				
-				if(switchValue(numbers[j], numbers[j+1])) {
-					int temp = numbers[j];
-					numbers[j] = numbers[j+1];
-					numbers[j+1] = temp;
-				}
-			}
-		}
-		
-		if(numbers[0] == 0) {
-			return "0";
-		} else {
-			for(int number : numbers) {
-				sb.append(number);
-			}
-		}
-		
-		return sb.toString();
-	}
 	
 	public boolean switchValue(int x, int y) {
 		
@@ -110,7 +104,6 @@ public class TopNumber {
 				return false;
 			}
 		}
-		
 	}
 	
 	public static void main(String[] args) {
