@@ -1,14 +1,27 @@
 package programmers.sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class HIndex {
 
 	public int solution(int[] citations) {
 
-        Arrays.sort(citations);
+		List<Integer> citationsList = new ArrayList<Integer>();
+
+		for(int citation : citations) {
+			citationsList.add(citation);
+		}
+		
+		Collections.sort(citationsList, Comparator.reverseOrder());
+		
+		System.out.println(citationsList);
+
+		
         
-        System.out.println(Arrays.toString(citations));
         int total = citations.length;
         int index = 0;
         for(int i = citations.length -1 ; i >= 0 ; i--) {
@@ -18,7 +31,7 @@ public class HIndex {
         	
         	System.out.printf("index %d / count %d / rest %d \n",index, count, total-index);
         	
-        	if(count <= index ) {
+        	if(count >= index ) {
         		if(total - index <= index) {
         			return index;
         		}
@@ -30,7 +43,7 @@ public class HIndex {
 	
 	public static void main(String[] args) {
 		
-		int[] arr = new int[] {0,0,1,1,1,0,0,0,0};
+		int[] arr = new int[] {3, 0, 6, 1, 5};
 		int rslt = new HIndex().solution(arr);
 		System.out.println(rslt);
 	}
