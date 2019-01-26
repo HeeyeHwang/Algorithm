@@ -301,13 +301,22 @@ Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 ind
 <br/><br/>
 ### 탐욕법 Part
 
+##### 개념
+탐욕 알고리즘은 두 가지 기본적인 속성을 가진다.
+- 탐욕 선택 특성(Greedy choice property)
+- 최적의 하부 구조(Optimal substructure)
+
+탐욕 선택은 주어진 시점에 있어서 최선택을 선택하고, 문제 전체의 해답을 지역 최적의 답을 구함으로써 얻을 수 있다는 개념이다.
+
 ##### 소스
 [greedy-part](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/greedy)
 
 ##### 풀이기록
 + 체육복
-문제가 불친절해서 그냥 skip 하기로:O <br/>
-
+문제가 불친절해서 그냥 skip 하기로:O <br/><br/>
++ 단속카메라
+카메라가 어느 위치에 있을 때가 최소값을 갖게 할 수 있는 지를 생각해야 한다. 겹치는 구간이 있을 때, 그 겹치는 구간의 어디에 단속카메라가 있어도 상관없지만 설치 대수의 최소값을 갖기 위해선 차가 고속도로를 나가는 시점인 제일 오른쪽에 설치해야 한다. <br/>
+풀이와는 별개로 java로 알고리즘 문제를 풀면서 stream을 많이 사용하지 않았었는데, stream을 자주 사용해야겠다. **stream을 사용하면 collection이나 간단한 filter, comparator을 사용할 때 코드를 짧고 가독성 좋게 만드는 것 같다.** ~~그 외에도 stream의 장점이 있지만!~~
 
 <br/><br/>
 
