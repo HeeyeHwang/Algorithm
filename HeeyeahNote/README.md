@@ -300,6 +300,15 @@ Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 ind
 ### 완전탐색 Part
 <br/><br/>
 ### 탐욕법 Part
+
+##### 소스
+[greedy-part](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/greedy)
+
+##### 풀이기록
++ 체육복
+문제가 불친절해서 그냥 skip 하기로:O <br/>
+
+
 <br/><br/>
 
 
