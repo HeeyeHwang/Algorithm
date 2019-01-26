@@ -18,10 +18,10 @@
 - [Programmers](#Programmers)
   * [연습-해시 Part](#해시-Part)
   * [연습-스택/큐 Part](#스택_큐-Part)
-  * [연습- 힙(Heap) Part](#힙(Heap)-Part)
-  * [정렬 Part](#정렬-Part)
-  * [완전탐색 Part](#완전탐색-Part)
-  * [탐욕법(Greedy) Part](#탐욕법-Part)
+  * [연습-힙(Heap) Part](#힙(Heap)-Part)
+  * [연습-정렬 Part](#정렬-Part)
+  * [연습-완전탐색 Part](#완전탐색-Part)
+  * [연습-탐욕법(Greedy) Part](#탐욕법-Part)
   * [연습-다이나믹프로그래밍 Part](#다이나믹프로그래밍-Part)
 
 <br/>
