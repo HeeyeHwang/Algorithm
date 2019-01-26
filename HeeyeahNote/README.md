@@ -15,12 +15,11 @@
   * [1927. 최소힙](#최소힙)
 <br/>
 
-- Programmers
-  * [타일 장식물](#타일-장식물)
-  * [프린터](#프린터)
-  * [코딩테스트연습-해시 Part](#프로그래머스-코딩테스트연습-해시)
-  * [코딩테스트연습-스택/큐 Part](#프로그래머스-코딩테스트연습-스택_큐)
-  
+- [Programmers](#Programmers)
+  * [연습-해시 Part](#해시-Part)
+  * [연습-스택/큐 Part](#스택_큐-Part)
+  * [연습-다이나믹프로그래밍 Part](#다이나믹프로그래밍-Part)
+
 <br/>
 <br/>
 <br/>
@@ -32,25 +31,25 @@
 
 ##### 풀이법
 * 시작점
-  
+
   DP 문제에서 답 도출할 때, i번째 (혹은 i, j번째) 일 때 최적의 답을 구하고 저장해서 그 값을 쓰는 방식인 것 같아서
-  
+
   1. Result 배열 만듦
   2. 1차원 배열인지 (i), 2차원 배열인지(i, j) 더 필요한 지 고민
   3. 잘 모르겠음
   4. 1차원으로 잡아보고 값이 더 필요하다 싶으면 2차원으로 잡기로 함
 
 * 1차시도
-  
+
   기준 점이 되는 i ( i=0일 때, 1번째 잔)를 선택했을 때, 이전 잔을 선택한 값, 아닌 값 두 개를 비교해 MAX 값 저장
-	
+
   예제는 답이 잘 나와서 제출했는데, 오답…………
 
 
 * 2차시도
 
 	기준 점이 되는 i를 선택했을 때의 MAX 값은 맞는데, 이 값을 i-1의 MAX 값과 비교해야 함 ( R[i-1]값보다 R[i]이 작으면, i를 선택하지 않는 게 최선의 선택)
-  
+
   통과
 
 ##### 참고
@@ -70,13 +69,13 @@
 * 시작점
 
   Graph 문제에 ABCDE 로 이어진 length를 찾는 문제니까 DFS로 풀어야겠다고 생각했다.
-  
+
 * 1차시도
 
   1. 시작점(root)을 모든 노드에 대해 생각해야 한다. 1에서 시작하는 경우와 6에서 시작하는 깊이가 다르게 나올 수 있음.
   2. stack을 하나 두고, 시작점부터 push. 연결된 노드 값을 visit하지 않았을 때 visit체크 후 stack에 push하고 그 값을 기준으로 반복.
   3. stack is empty 할 때까지 못찾으면 return 0. 그 전에 stack의 길이가 5가 되면 return 1.
-  
+
   이렇게 했더니 시간 초과가 난다..😭
   stack을 돌면 어떤 element들이 length가 5인지까지 알 수 있지만 이 문제는 그냥 return 1 아니면 0이니까 사실 좀 불필요한 것 같기도하고
   게다가 stack으로 돌았을 때 더이상 visit 할 곳이 없으면 pop해줘야 하는 타이밍도 flag로 체크해줘야 하고.... 하여튼 복잡시럽다 (해당 소스의 printABCDERel 메소드)
@@ -84,14 +83,14 @@
 * 2차시도
 
   검색해봄. 시간초과 어떻게 안나는지. DFS는 스택과 재귀로 사용할 수 있는데, 재귀를 사용하면 깔끔하게 풀 수 있는 것 같다.
-  
+
   1. 재귀는 들어갈 곳이 없으면 그냥 알아서 위로 나오니까 end flag같은게 필요 없어서 좋은 듯.
   2. curr 노드를 받고, curr는 바로 visit 체크.
   3. rel이 있는 노드 중 visit 되지 않은 노드로 재귀, curr을 next노드로 지정.
   4. length가 5면 return 1. dfs 탐색 해도 답이 안나오면 return 0.
 
   dfs 방법은 아래 블로그를 참고했다😄 다음엔 혼자 힘으로도 시간초과 안나게 풀 수 있기를.
-  
+
 ##### 참고
 - http://wookje.dance/2017/04/18/boj-13023-ABCDE/
 
@@ -106,26 +105,26 @@
 
 ##### 풀이법
 * 시작점
-  
+
   (bad👎) '증가'하는 수열을 max 값을 저장한 후 max값보다 커야 한다고 생각해서 풀었더니 답이 안나온다. DP 분류라는 것을 알고 풀었다.
-  
+
 *1차 시도
 
-  수열의 처음 값 부터 보면서 max를 저장 후, 수열 인자 값과 비교해서 
-  
+  수열의 처음 값 부터 보면서 max를 저장 후, 수열 인자 값과 비교해서
+
 	max > A(i)이면 dp[i] = dp[i-1]
 	max < A(i)이면 dp[i] = dp[i-1] + 1
-	  
+
   와 같이 문제를 풀었다.
   이렇게 풀면 2 1 2 와 같은 수열의 정답이 2가 아니라 1이 나온다😅
-  
+
 *2차 시도
 
   '증가'하는 수열의 조건과, dp 돌면서 이전의 값 중 현재와 비교했을 때의 max값 저장
-  
+
   이 두가지를 기억하니 풀렸다.
-  
- 
+
+
 ##### 참고
 - http://suriisurii.tistory.com/39
 
@@ -142,19 +141,19 @@
 * 시작점
 
   수열의 규칙을 보니
-  
+
 	P[i] = P[i-2] + P[i-3] ( i >= 3)
 	P[i] = 1 					 ( i < 3)
-	
+
   이어서 점화식을 사용해 풀었다.
-  
+
 * 시도
-  
+
   점화식이 분명 맞는데 틀렸다고 나와서 보니, 1 <= N <= 100인 범위에서, 100을 넣으면 int 범위를 넘어서 답이 제대로 출력되지 않는다. DP 배열을 long으로 두고 해야 함!
-  
+
  <br/><br/>
- 
- 
+
+
 ### 2xn 타일링
 
 ##### 소스
@@ -171,16 +170,6 @@
 <br/>
 
 
-### 타일 장식물
-##### 소스
-[타일 장식물](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/dp/TileOrnaments.java) - DP
-
-##### 풀이법
-
-2xn 타일링과 유사한데, 직사각형의 둘레를 구해야 한다는 차이점.
-
-<br/>
-<br/>
 
 
 ### 암호코드
@@ -203,7 +192,7 @@ abcdefl
  * 0을 간과한 사실. 첫글자나 끝글자 말고도 중간에 들어갔을 때 처리를 해줘야 함
  * 0이 있을 때는 하다보면 dp값이 작아지기도 한다... ( 12031 )
  * dp배열은 i 인덱스를 봤을 때, 그 시점에 구할 수 있는 암호의 최대 개수
- 
+
  * 이거 한자리씩 본 것 말고, 2자리씩 끊어서 케이스 나누면 더 쉬운듯!
 
 <br/>
@@ -237,23 +226,13 @@ abcdefl
 ##### 소스
 [최소힙](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/baekjoon/P1927_MinHeap.java) - heap
 
-<br/>
-<br/>
-
-
-### 프린터
-##### 소스
-[프린터](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/stackqueue/Printer.java) - stack/queue
-
-##### 풀이법
-
-Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 index를 key로 사용. ( 주어진 location으로 get value 해서 답 도출해야 하므로 )
-
 
 <br/>
 <br/>
 
-### 프로그래머스 코딩테스트연습 해시
+## Programmers
+
+### 해시 Part
 
 ##### 소스
 [hash-part](https://github.com/heeyeah/AlgorithmPractice/tree/master/HeeyeahNote/src/programmers/hash)
@@ -278,33 +257,48 @@ Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 ind
 <br/>
 <br/>
 
-### 프로그래머스 코딩테스트연습 스택_큐
+### 스택_큐 Part
 
 ##### 소스
 [stack/queue-part](https://github.com/heeyeah/AlgorithmPractice/tree/master/HeeyeahNote/src/programmers/stackqueue)
 
 ##### 풀이기록
 
-+ 쇠막대기 <br/>
++ 쇠막대기
 문제를 어떻게 풀 지만 생각하면 스택을 사용해서 구현하긴 쉽다. <br/>
 나같은 경우엔 아래와 같이 풀었다. <br/>
 1. 레이저를 구분하기 위해 * 로 치환<br/>
 2. 괄호 짝짓기 문제처럼 스택에 push, pop 반복하면서 괄호 사이에 있는 레이저 개수 체크<br/>
-3. 괄호는 쇠막대기고 그 사이에 레이저가 자르 것이기 때문에 레이저 개수+1개는 자른 쇠막대기의 개수<br/>
-+ 다리를 지나는 트럭<br/>
+3. 괄호는 쇠막대기고 그 사이에 레이저가 자르 것이기 때문에 레이저 개수+1개는 자른 쇠막대기의 개수<br/><br/>
++ 다리를 지나는 트럭
 스택/큐로 분류되는데 난 그냥 푼 듯. 그래서 다 풀고 나서 다른 사람 풀이도 보고 첨부한다. <br/>
 난 이 문제 풀 때, 트럭마다 check 배열을 두고 다리 위에 몇 초 후에 없어지는 지를 체크했다. 만약 다리 길이가 2이면 처음에 2를 체크 배열에 설정하고 시간이 지날 때마다 1을 빼면서 0이 될 떄까지 체크.
 1. 시간이 지날 때마다 check 배열의 값들을 -1 해주고, -1한 뒤의 값이 0이면 limit에서 다시 트럭무게만큼 더함.
 2. 그리고 idx를 따로 둬서 커서처럼 트럭이 다리 위를 지날 때 값을 check에 기록
-3. 마지막 트럭이 지나갔을 때 (check의 마지막 배열이 0 일 때) 종료<br/>
-+ 기능개발<br/>
+3. 마지막 트럭이 지나갔을 때 (check의 마지막 배열이 0 일 때) 종료<br/><br/>
++ 기능개발
 일수 계산할 때 double값을 얻으려면 인자에 double값이 있어야 하는 것과 올림 함수 ceil 기억.<br/>
-queue를 잘 다루려면 while queue.isEmpty가 아닐때까지 프로세싱을 잘해야 하는데, 여기서 그냥 while문 두번 돌리면 되는 걸, 두번 돌릴 생각을 해서 어렵게 풀려고 했다는 것!<br/>
-+ 주식가격<br/>
+queue를 잘 다루려면 while queue.isEmpty가 아닐때까지 프로세싱을 잘해야 하는데, 여기서 그냥 while문 두번 돌리면 되는 걸, 두번 돌릴 생각을 해서 어렵게 풀려고 했다는 것!<br/><br/>
++ 주식가격
 queue와 stack 사용!<br/>
 1. queue에 다 넣고 하나씩 뽑으면서 걸리는 시간 측정
 2. 한 element 를 기준으로 시간 측정 후 다음 element 계산하기 위해 뽑았던 거 Stack에 넣어놓고 다시 queue에 삽
 
++ 프린터
+Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 index를 key로 사용. ( 주어진 location으로 get value 해서 답 도출해야 하므로 )
 <br/><br/>
 
+### 다이나믹프로그래밍 Part
 
+##### 소스
+[dynamic-part](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/dp)
+
+##### 풀이기록
++ 타일 장식물
+2xn 타일링과 유사한데, 직사각형의 둘레를 구해야 한다는 차이점. <br/><br/>
+
++ 정수 삼각형
+Tree + dfs로 풀어야하나 잠깐 고민했는데, 그렇게 풀면 너무 복잡해질 것 같아서 포기했다. **DP를 풀 땐, 항상 DP를 무엇으로 정의할 것인가? 를 생각하고 문제를 풀어야**한다.<br/>
+이 문제에서 DP는 N만큼의 배열로 메모리를 잡고, 한 층씩 내려가면서 그 전의 값 2개 중 max값에 더해가면서 최대sum을 저장하는 것으로 생각했다.
+
+<br/><br/>
