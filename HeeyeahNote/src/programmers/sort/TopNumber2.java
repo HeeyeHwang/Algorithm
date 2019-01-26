@@ -19,7 +19,6 @@ public class TopNumber2 {
 			numStr[i] = String.valueOf(numbers[i]);
 		}
 		
-		
 		Arrays.sort(numStr, (o1, o2) -> (o2+o1).compareTo(o1+o2));
 		
 		StringBuilder sb = new StringBuilder();
