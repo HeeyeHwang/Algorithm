@@ -1,7 +1,9 @@
 package programmers.mock;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class D190126_Mock3 {
 
@@ -36,11 +38,7 @@ image
 		int answer = 0;
 		int N = board.length;
 		
-		Set<Integer> numsSet = new HashSet<Integer>();
-		
-		for(int i = 0 ; i <nums.length ; i++) {
-			numsSet.add(nums[i]);
-		}
+		Set<Integer> numsSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 		
 		/*
 		 * checkBingo에
@@ -66,19 +64,11 @@ image
 					if(i+j == N -1) {
 						checkBingo[2*N+1]++;
 					}
-//					board[i][j] = 0;
 				}
 			}
 		}
 
-//		System.out.println(Arrays.toString(checkBingo));
-
-		for(int check : checkBingo) {
-			if(check == N) {
-				answer++;
-			}
-		}
-		
+		answer = (int) Arrays.stream(checkBingo).filter(check -> (check == N)).count();
         
         return answer;
     }
