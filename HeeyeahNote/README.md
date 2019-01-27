@@ -317,6 +317,11 @@ Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 ind
 + 단속카메라<br/>
 카메라가 어느 위치에 있을 때가 최소값을 갖게 할 수 있는 지를 생각해야 한다. 겹치는 구간이 있을 때, 그 겹치는 구간의 어디에 단속카메라가 있어도 상관없지만 설치 대수의 최소값을 갖기 위해선 차가 고속도로를 나가는 시점인 제일 오른쪽에 설치해야 한다. <br/>
 풀이와는 별개로 java로 알고리즘 문제를 풀면서 stream을 많이 사용하지 않았었는데, stream을 자주 사용해야겠다. **stream을 사용하면 collection이나 간단한 filter, comparator을 사용할 때 코드를 짧고 가독성 좋게 만드는 것 같다.** ~~그 외에도 stream의 장점이 있지만!~~
++ 저울<br/>
+~~어려워.......~~ 아이디어를 찾지 못해서 검색한 후 풀었다. 아이디어는 [여기](http://gall.dcinside.com/mgallery/board/view?id=ps&no=1208) 보고 정리했다. <br/>
+수학문제 풀듯이 생각해서 풀었는데, 손으로 정리하는 게 편해서 이미지 첨부😌<br/>
+
+![Scale](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/img/scale_solve.jpeg)
 
 <br/><br/>
 
