@@ -321,7 +321,7 @@ Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 ind
 ~~어려워.......~~ 아이디어를 찾지 못해서 검색한 후 풀었다. 아이디어는 [여기](http://gall.dcinside.com/mgallery/board/view?id=ps&no=1208) 보고 정리했다. <br/>
 수학문제 풀듯이 생각해서 풀었는데, 손으로 정리하는 게 편해서 이미지 첨부😌<br/>
 
-![Scale](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/img/scale_solve.jpeg){: width="50%" height="50%"}
+![Scale](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/img/scale_solve.jpeg)
 
 <br/><br/>
 
