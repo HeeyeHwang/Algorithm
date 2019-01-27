@@ -294,10 +294,22 @@ Queue를 이용. priority 는 unique하지 않기 때문에 원래 배열된 ind
 <br/><br/>
 
 ### 힙(Heap) Part
+
+##### 소스
+[heap-part](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/heap)
+
 <br/><br/>
 ### 정렬 Part
+
+##### 소스
+[sort-part](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/sort)
+
 <br/><br/>
 ### 완전탐색 Part
+
+##### 소스
+[완전탐색-part](https://github.com/heeyeah/AlgorithmPractice/blob/master/HeeyeahNote/src/programmers/sort/brute/force/search)
+
 <br/><br/>
 ### 탐욕법 Part
 
