@@ -1,4 +1,4 @@
-package budapest.codility;
+package codility;
 
 public class Lesson1 {
 	public int solution(int N) {
