@@ -44,10 +44,84 @@ public class P3190_Snake {
 	
 	private static void whenStopTheSnake(int n, String[] apples, String[] directions) {
 		
+		int[][] map = new int[n][n];
+		
+		for(String apple : apples) {
+			String[] loc = apple.split(" ");
+			map[Integer.parseInt(loc[0]) -1][Integer.parseInt(loc[1]) -1] = -1; // apple = -1
+		}
+		
+		Map<Integer, String> directMap = new HashMap<Integer, String>();
+		for(int i = 0 ; i < directions.length ; i++) {
+			String[] arr = directions[i].split(" ");
+			directMap.put(Integer.parseInt(arr[0]), arr[1]);
+		}
+		
+//		printMap(map);
+		
+		LinkedList<Loc> snake = new LinkedList<Loc>();
+		
+		int time = 0;
+		int x = 0;
+		int y = 0;
+		int turn = 0;
+		snake.add(new Loc(x, y));
+		
+		while(true) {
+			
+			time++;
+			
+			// turn!
+			if(turn % 4 == 0) {
+				y++; //right
+			} else if (turn % 4 == 1) {
+				x++; // down
+			} else if (turn % 4 == 2) {
+				y--; // left
+			} else if (turn % 4 == 3) {
+				x--; // up
+			}
+			
+			if(x >= n || x < 0 || y >= n || y < 0) {
+//				System.out.println(" break ! : " + time);
+				break;
+			}
+			
+			snake.addFirst(new Loc(x, y));
+
+			if(map[x][y] != -1) {
+				snake.removeLast();
+				map[x][y] = 0;
+			}
+			
+			if(directMap.containsKey(time)) {
+				if(directMap.get(time).equals("D")) {
+					turn++;
+				} else {
+					turn--;
+				}
+			}
+//			System.out.printf("== time %d, turn %d ==\n", time, turn);
+//			for(Loc el : snake) {
+//				System.out.println(el);
+//			}
+		}
+		
+		System.out.println(time);
+	}
+	
+	private static void printMap(int[][] map) {
+		for(int[] mapp : map) {
+			System.out.println(Arrays.toString(mapp));
+		}
+	}
+	
+	private static void whenStopTheSnake_back(int n, String[] apples, String[] directions) {
+		
 		Map<String, Loc> appleMap = new HashMap<String, Loc>();
 		for(int i = 0 ; i < apples.length ; i++) {
 			String[] arr = apples[i].split(" ");
-			appleMap.put(arr[0]+arr[1], new Loc(Integer.parseInt(arr[0]), Integer.parseInt(arr[1])));
+			appleMap.put(arr[0]+":"+arr[1], new Loc(Integer.parseInt(arr[0]), Integer.parseInt(arr[1])));
 		}
 		
 		Map<Integer, String> directMap = new HashMap<Integer, String>();
@@ -114,8 +188,8 @@ public class P3190_Snake {
 			snake.push(new Loc(x, y));
 			
 			
-			if(appleMap.containsKey(x+""+y)) {
-				appleMap.remove(x+""+y);
+			if(appleMap.containsKey(x+":"+y)) {
+				appleMap.remove(x+":"+y);
 			} else {
 				snake.removeLast();
 			}
