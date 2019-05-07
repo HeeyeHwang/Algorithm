@@ -1,6 +1,5 @@
 package codility;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -29,6 +28,10 @@ public class Lesson2 {
 	 
 	 //CyclicRotation
 	 public int[] solution(int[] A, int K) {
+		 
+		 if(A.length == 0 || A == null) {
+			 return A;
+		 }
 		 
 		 int length = A.length;
 		 int rotate = K % length;
