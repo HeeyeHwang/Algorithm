@@ -1,8 +1,10 @@
 package note;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 
-import org.junit.Test;
+
 
 public class SortTest {
 

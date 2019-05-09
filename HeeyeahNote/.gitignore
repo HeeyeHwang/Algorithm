@@ -5,3 +5,34 @@
 *.iml
 .project
 .settings
+HELP.md
+.gradle
+/build/
+/bin/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.idea/*
+*.iws
+*.iml
+*.ipr
+/out/
+*.log
+*.gz
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
