@@ -4,14 +4,30 @@ import java.util.Arrays;
 
 public class Lesson4 {
 
-    public static void main(String[] args) {
 
-        Lesson4 lesson = new Lesson4();
 
-        lesson.solution(1, new int[]{1});
+    public int missingInteger(int[] A) {
+
+
+        A = Arrays.stream(A).filter(x -> x > 0).distinct().sorted().toArray();
+
+        int value = 1;
+        for(int a : A ) {
+
+//            System.out.println(value + " " + a + " ");
+            if(a > 0) {
+                if(value == a) {
+                    value++;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        return value;
     }
 
-    public int[] solution(int N, int[] A) {
+    public int[] maxCounter(int N, int[] A) {
 
         int[] output = new int[N];
         int maxCounter = 0;
