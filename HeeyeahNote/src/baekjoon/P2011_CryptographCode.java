@@ -86,10 +86,6 @@ public class P2011_CryptographCode {
 			return false;
 		}
 		int alphabet = pre*10 + post; //= Integer.parseInt(String.format("%d%d", pre, post));
-		if (1 <= alphabet && alphabet <= 26) {
-			return true;
-		} else {
-			return false;
-		}
+        return 1 <= alphabet && alphabet <= 26;
 	}
 }

@@ -39,8 +39,7 @@ public class TruckCrossingBridge {
          while(true) {
              answer++;
 
-             if (bridgeMap.containsKey(answer))
-                 bridgeMap.remove(answer);
+             bridgeMap.remove(answer);
 
              sum = bridgeMap.values().stream().mapToInt(Number::intValue).sum();
              System.out.printf("time : %d , sum : %d\n", answer, sum);

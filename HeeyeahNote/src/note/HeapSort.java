@@ -18,7 +18,7 @@ public class HeapSort {
 
 	}
 	
-	public void buildHeap() {
+	private void buildHeap() {
 		for(int i = (arr.length -1) / 2 ; i>= 0 ; i--) {
 			heapify(i, arr.length-1);
 		}
@@ -30,26 +30,27 @@ public class HeapSort {
 		arr[j] = temp;
 	}
 
+	//min heap
 	void heapify(int index, int size) {
 
 		int left = 2*index + 1;
 		int right = 2*index + 2;
-		int max;
+		int min;
 		
 		if(left <= size && arr[left] < arr[index]) {
-			max = left;
+			min = left;
 		} else {
-			max = index;
+			min = index;
 		}
 		
-		if(right <= size && arr[right] < arr[max]) {
-			max = right;
+		if(right <= size && arr[right] < arr[min]) {
+			min = right;
 		}
 		
 		
-		if(max != index) {
-			swap(index, max);
-			heapify(max, size);
+		if(min != index) {
+			swap(index, min);
+			heapify(min, size);
 		}
 	}
 }

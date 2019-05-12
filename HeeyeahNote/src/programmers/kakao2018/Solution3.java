@@ -66,12 +66,8 @@ public class Solution3 {
 		for(String el : target) {
 			set.add(el);
 		}
-		
-		if(target.length == set.size()) {
-			return true;
-		} else {
-			return false;
-		}
+
+        return target.length == set.size();
 	}
 
 	public static void main(String[] args) {

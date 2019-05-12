@@ -3,8 +3,8 @@ package swexpert;
 import java.util.Scanner;
 
 public class D0211_NQueen {
-	
-	static int col[];
+
+    static int[] col;
 	static int n;
 	static int ans;
 	

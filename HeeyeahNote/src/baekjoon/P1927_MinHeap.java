@@ -21,8 +21,8 @@ public class P1927_MinHeap {
 
 	enum TYPE {
 		TOP_DOWN,
-		BOTTOM_UP;
-	}
+		BOTTOM_UP
+    }
 
 	public static int[] heapArr = new int[100001];
 	

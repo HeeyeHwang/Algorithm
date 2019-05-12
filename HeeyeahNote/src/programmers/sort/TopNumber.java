@@ -97,12 +97,8 @@ public class TopNumber {
 				int rest = y*(int) (Math.pow(10, gap));
 				y = rest + ((int)(Math.pow(10, gap) -1) / 9) * lastDigit;
 			}
-			
-			if ( x < y) {
-				return true;
-			} else {
-				return false;
-			}
+
+            return x < y;
 		}
 	}
 	
